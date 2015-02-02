@@ -22,11 +22,11 @@
     "web-component-tester": "Polymer/web-component-tester#^2.0.0"
   },
   "homepage": "https://github.com/silentHoo/ph-core-audio",
-  "_release": "9ee47d2a76",
+  "_release": "e3a89e1fa5",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "9ee47d2a7627be2d40752b4427a715cb73a0158f"
+    "commit": "e3a89e1fa525d70f7f16740a7b48a7b0f23856ce"
   },
   "_source": "git://github.com/silentHoo/ph-core-audio.git",
   "_target": "master",

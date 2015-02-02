@@ -39,7 +39,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 -->
 <script src="../Recorderjs/recorder.js"></script>
 
-<polymer-element name="ph-core-audio" constructor="PhCoreAudio" attributes="visualizeAudio initialGain gain barSpacing">
+<polymer-element name="ph-core-audio" constructor="PhCoreAudio" attributes="visualizeAudio initialGain gain barSpacing recorderWorkerFile">
   <template>
     <link rel="stylesheet" href="ph-core-audio.css">
 
@@ -87,7 +87,18 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
            * @type Integer
            * @default 2
            */
-          barSpacing: 2
+          barSpacing: 2,
+          
+          
+          /**
+           * The filepath of the recorderworker of Recorder.js. Depends on your bower configuration and is needed to
+           * use webworkers.
+           *
+           * @attribute recorderWorkerFile
+           * @type String
+           * @default '/components/Recorderjs/recorderWorker.js'
+           */
+          recorderWorkerFile: '/components/Recorderjs/recorderWorker.js'
         },
 
 
@@ -220,7 +231,7 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 
           // *** Recording ***
           this._audioRecorder = new Recorder(this._volumeFullNode, {
-            workerPath: '/bower_components/Recorderjs/recorderWorker.js'
+            workerPath: this.recorderWorkerFile
           });
 
           // *** Wiring all together ***
@@ -263,12 +274,11 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 
               function update() {
                 requestAnimationFrame(update);
+                  analyser.getByteFrequencyData(frequencyData);
 
-                analyser.getByteFrequencyData(frequencyData);
-
-                bars.forEach(function (bar, index) {
-                  bar.style.height = frequencyData[index] + 'px';
-                });
+                  bars.forEach(function (bar, index) {
+                    bar.style.height = frequencyData[index] + 'px';
+                  });
               };
 
               update();

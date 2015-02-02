@@ -2,6 +2,7 @@
   "author": "Patrick Hillert",
   "name": "ph-core-audio",
   "description": "An audio component wrapper with recording functionality.",
+  "version": "0.1.0",
   "license": "BSD",
   "keywords": [
     "audio",
@@ -22,14 +23,14 @@
     "web-component-tester": "Polymer/web-component-tester#^2.0.0"
   },
   "homepage": "https://github.com/silentHoo/ph-core-audio",
-  "_release": "e3a89e1fa5",
+  "_release": "0.1.0",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "e3a89e1fa525d70f7f16740a7b48a7b0f23856ce"
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "079b8506e9a21e01879d3778c9eff252db4df2d7"
   },
   "_source": "git://github.com/silentHoo/ph-core-audio.git",
-  "_target": "master",
+  "_target": "~0.1.0",
   "_originalSource": "silentHoo/ph-core-audio",
   "_direct": true
 }
